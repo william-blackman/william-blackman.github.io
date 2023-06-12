@@ -81,14 +81,7 @@ img:hover {
 	transform: scale(1.1); /* Image is increased slightly when hovered over */
 }
 
-/* The @media rule is used in media queries to apply different styles for different media/types of devices */
-/* On screens 576px and smaller the images will be 100px tall and centered vertically in the column */
-@media screen and (max-width: 576px) {
-    img {
-        height: 100px;
-        margin-top: 150px;
-    }
-}
+
 
 /* Styling for footer element */
 footer {
@@ -189,7 +182,7 @@ footer {
 @keyframes moveVideoText {
     from {top: -100vw;}  This sets the position of the video text to above the viewport 
     to {top: 0vw;}  This moves the video text to the normal positioning on the viewport */
-}
+
 /***** END OF VIDEO STYLING *****/
 
 /***** TABLE STYLING -  this section covers the styling of the columns and rows within the table *****/
@@ -205,7 +198,7 @@ footer {
 .Column_1 {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     padding: 0%;
     height: 360px;
     background-color: #fffef9;
@@ -222,7 +215,7 @@ footer {
 
 .Column_2 {
     display: flex;
-    width: 50%;
+    width: 100%;
     padding: 0%;
     height: 360px;
     background-color: #fffaf1;
