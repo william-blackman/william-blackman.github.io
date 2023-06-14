@@ -129,7 +129,7 @@ footer {
 }
 
 /* Screens 576px and smaller will display navbar links equally distributed */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .Navbar a{
         width: 25%; 
         font-size: 12px;
@@ -139,12 +139,12 @@ footer {
 /* Navbar hover effects */
 .Navbar a:hover {
     background-color: #f4f4f4; 
-    color: #05186e; /* This defines the font color that will display when navbar a elements are hovered over */
-    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
+    color: #05186e;
+    font-weight: bold; 
 }
 
 /* Navbar home button */
-.Navbar a.active { /* This targets the a element on the navbar with the "active" class */
+.Navbar a.active { 
     background-color: darkgray;
 }
 /***** END OF NAVBAR STYLING *****/
@@ -152,9 +152,9 @@ footer {
 /***** VIDEO STYLING *****/
 /* Formatting for background video */
 #Wave_Video {
-    position: fixed; /* This fixes the video to the page */
-    right: 0; /* This ensures there is no space between the edge of the video and the edge of the page */
-    bottom: 0; /* This ensures no space between the bottom of the video and the bottom of the page */
+    position: fixed; 
+    right: 0; 
+    bottom: 0; 
     min-width: 100%;
     z-index: -1; 
     filter: sepia(30%);
@@ -169,14 +169,14 @@ footer {
 
 /* Texts over the video */
 .Video_Text {
-    background: rgba(0, 0, 0, 0.1); 
+    background: rgba(0, 0, 0, 0.05); 
     color: white;
     text-shadow: 2px 2px 5px #000;
     width: 100%; 
-    padding: 150px; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
-    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
-    -webkit-animation: moveVideoText 5.75s;
-    animation: moveVideoText 5.75s;
+    padding: 150px; 
+    position: relative; 
+    /*-webkit-animation: moveVideoText 5.75s;
+    animation: moveVideoText 5.75s; */
 }
 
 /* This animation effect causes the overlay video text to move up from the bottom of the page upon page load 
@@ -187,13 +187,18 @@ footer {
 /***** END OF VIDEO STYLING *****/
 
 /***** TABLE STYLING -  this section covers the styling of the columns and rows within the table *****/
-* { /* The asterisk is a universal selector that applies this effect to all elements on the page */
-    box-sizing: border-box; /* This creates a box with a border within which we will place most of our text */
+* { 
+    box-sizing: border-box;
 } 
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.flex-container-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse;
 }
 
 .Column_1 {
@@ -208,7 +213,7 @@ footer {
 }
 
 /* Screens 576px and smaller will display a scroll bar if the text overflows the column height */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .Column_1 {
         overflow: auto;
     }
@@ -231,7 +236,12 @@ footer {
     }
 }
 
-/* This class is applied to the columns in the final row, overriding the height and padding to provide more room for the contact form  while keeping the rest of the formatting from Column_1 or Column_2 */
+@media (min-width: 768px) {
+    .flex-container-reverse > * {
+        width: 50%;
+    }
+}
+
 .Column_tall {
     padding-top: 1%;
     height: 385px;
@@ -245,59 +255,54 @@ footer {
     filter: sepia(25%);
 }
 
-/* This inserts something after the content of selected elements (in this case the elements with class "Row") */
-.Row:after {
-	content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
-	display: table; /* The display property specifies the type of display behavior; the table value tells the browser to treat the element as a table */
-	clear: both; /* This clears any other elements from floating on the left or the right of an element */
-}
-/***** END OF TABLE STYLING *****/
+
 
 /***** CONTACT FORM STYLING *****/
-/* input[type=text] targets all text input sections of the contact form */
 input[type=text] {
-    width: 100%; /* Each input box covers the full width of the container */
-    padding: 12px; /* Adds padding within the text box */
-    border: 1px solid #ccc; /* Setting a solid border and its color */
-    border-radius: 4px; /* Slightly rounds the corners of the text box border */
-    box-sizing: border-box; /* This creates a box with a border around the contact form input boxes */
-    margin-top: 6px; /* Adds a margin to the top of the text box */
-    margin-bottom: 16px; /* Adds a margin to the bottom of the text box */
-    resize: vertical; /* This allows the user to resize the text boxes vertically */
+    width: 100%;
+    font-size: medium;
+    padding: 6px;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical; 
     font-family: Perpetua, Rockwell Extra Bold;
 }
 
 /* Hover effects for input boxes */
 input[type=text]:hover {
-    box-shadow: 0 0 5px #00004d inset; /* This creates a blue shadow in the text box when hovered over by the user */
+    box-shadow: 0 0 3px #05186e inset; 
 }
 
 /* Submit button */
 input[type=submit] {
-    background-color: #05186e; /* Sets the background color of the submit button to black */
-    color: white; /* Sets the font color of the Submit button to white */
-    font-weight: bold; /* Makes the font of the submit button bold */
-    padding: 12px 20px; /* Adds padding to the submit button */
-    border: none; /* Removes the border from the submit button */
-    border-radius: 4px; /* Gives the submit button the same rounded corners as the text boxes */
-    cursor: pointer; /* Changes the cursor to pointer when over the submit button */
-    display: block; /* Allows the submit button to be centered */
-    margin-left: auto; /* In combination with "margin-right: auto" this will center the submit button */
+    background-color: #05186e;
+    color: white; 
+    font-weight: bold; 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    display: block; 
+    margin-left: auto; 
     margin-right: auto;
     font-family: Perpetua, Rockwell Extra Bold;
 }
 
 /* Hover effect for submit button */
 input[type=submit]:hover {
-    background-color: white; /* Turns the background of the submit button white when the user hovers over it */
-    color: #05186e; /* Turns the font black when hovered over */
-    transform: scale(1.5); /* Makes the button increase 1.5 times in size */
-    transition: transform 1.5s; /* Makes the transform effect last 1.5 seconds */
+    background-color: white; 
+    color: #05186e; 
+    transform: scale(1.1); 
+    transition: transform .5s; 
+    border: 1px solid #05186e;
 }
 
 /* Form element */
 form {
-    border-radius: 5px; /* Rounds the corners of the contact form */
+    border-radius: 5px; 
     background-color: #fffaf1; 
     padding: 10px; 
     font-family: Avant Garde, Helvetica;
