@@ -1,4 +1,8 @@
 /***** GENERAL STYLING *****/
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body */
 body {
     margin: 0%  
@@ -56,6 +60,8 @@ p:hover {
 /* Anchor elements */
 a {
     color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* Quotation elements */
@@ -65,7 +71,6 @@ q {
 
 /* Image elements */
 img {
-    /*  filter: grayscale(75%); This rids our pictures of 75% of their color */
     border-radius: 8px; 
     max-width: 100%; 
     height: 340px; 
@@ -75,7 +80,7 @@ img {
 }
 
 /* Image element hover effects */
-img:hover {
+.expand:hover {
     transition: transform 1s; 
 	transform: scale(1.1); 
 }
@@ -151,7 +156,7 @@ footer {
 
 /***** VIDEO STYLING *****/
 /* Formatting for background video */
-#Wave_Video {
+#Typing_Video {
     position: fixed; 
     right: 0; 
     bottom: 0; 
@@ -162,7 +167,7 @@ footer {
 
 /* Screens that are 576px and smaller will not display the background video 
 @media screen and (max-width: 576px) {
-    #Wave_Video {
+    #Typing_Video {
         display: none;
     }
 }/*
@@ -185,6 +190,102 @@ footer {
     to {top: 0vw;}  This moves the video text to the normal positioning on the viewport */
 
 /***** END OF VIDEO STYLING *****/
+
+/***** SLIDESHOW STYLING *****/
+#Slideshow_Background {
+    background: rgba(196, 194, 182, 0.35);
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, 0.55);
+}
+
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next {
+    right: 0;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/*Slideshow Text*/
+.text {
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
 
 /***** TABLE STYLING -  this section covers the styling of the columns and rows within the table *****/
 * { 
@@ -221,6 +322,7 @@ footer {
 
 .Column_2 {
     display: flex;
+
     width: 100%;
     padding: 0%;
     height: 360px;
@@ -258,55 +360,199 @@ footer {
 
 
 /***** CONTACT FORM STYLING *****/
-input[type=text] {
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid black;
+    cursor: pointer;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+@keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+.form-popup {
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+    width: 40vw;
+}
+
+.form-container {
+    max-width: 100%;
+    padding: 1vw;
+    background-color: white;
+}
+
+/* Input Fields */
+.form-container input[type=text] {
     width: 100%;
-    font-size: medium;
-    padding: 6px;
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 6px; 
-    margin-bottom: 16px; 
-    resize: vertical; 
-    font-family: Perpetua, Rockwell Extra Bold;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-size: 14pt;
 }
 
-/* Hover effects for input boxes */
-input[type=text]:hover {
-    box-shadow: 0 0 3px #05186e inset; 
+.form-container input[type=tel] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-size: 14pt;
 }
 
-/* Submit button */
-input[type=submit] {
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover {
+    color: white;
     background-color: #05186e;
-    color: white; 
-    font-weight: bold; 
-    padding: 12px 20px; 
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto;
-    font-family: Perpetua, Rockwell Extra Bold;
+    transition-duration: .8s;
+    -webkit-transition-duration: .8s;
+    border-color: rgba(255, 255, 255, .4);
 }
 
-/* Hover effect for submit button */
-input[type=submit]:hover {
-    background-color: white; 
-    color: #05186e; 
-    transform: scale(1.1); 
-    transition: transform .5s; 
-    border: 1px solid #05186e;
+.form-container .btn {
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
 }
 
-/* Form element */
-form {
-    border-radius: 5px; 
-    background-color: #fffaf1; 
-    padding: 10px; 
-    font-family: Avant Garde, Helvetica;
-    margin-left: 1rem;
-    margin-right: 1rem;
+.form-container .cancel {
+    background-color: black;
+    color: white;
+    border-color: grey;
 }
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    transition-duration: .8s;
+    -webkit-transition-duration: .8s;
+    border-color: black;
+}
+
+
 /***** END OF CONTACT FORM STYLING *****/
+
+/**** Media Rules ****/
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.7vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.4vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.2vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.0vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 1.95vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.7vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.4vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.3vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%;
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-popup {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    h1{
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+    .expand {
+        height: 550px;
+    }
+}
+
