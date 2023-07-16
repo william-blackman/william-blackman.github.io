@@ -556,3 +556,8 @@ button:hover, .form-container .btn:hover {
     }
 }
 
+@media (max-width: 768px) {
+    #Slideshow_Container {
+        width: 80vw;
+    }
+}
